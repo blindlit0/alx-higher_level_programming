@@ -22,13 +22,13 @@ class Student:
             for attr in attrs:
                 if attr in self.__dict__:
                     res[attr] = self.__dict__[attr]
-                                                                                                                                else:
+        else:
             for attr in self.__dict__:
                 res[attr] = self.__dict__[attr]
 
-                                                                                                                                return res
+        return res
 
-                                                                                                                            def reload_from_json(self, json):
+    def reload_from_json(self, json):
         ''' Replaces all attributes of the Student instance '''
         for attr in json:
             self.__dict__[attr] = json[attr]
