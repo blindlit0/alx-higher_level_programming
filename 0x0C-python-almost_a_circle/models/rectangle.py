@@ -70,6 +70,7 @@ class Rectangle(Base):
  
             Args:
                 value (int): The height value to be set.
+
             Raises:
                 TypeError: If the value is not an integer
                 ValueError: If the value is not positive.
@@ -89,6 +90,7 @@ class Rectangle(Base):
             Returns: The x-coordinate of the rectangle's position.
         """
         return self.__x
+
     @x.setter
     def x(self, value):
         """
@@ -111,14 +113,14 @@ class Rectangle(Base):
     @property
     def y(self):
         """
-        Getter function for y.
+            Getter function for y.
 
-        Returns: The y-coordinate of the rectangle's position.
+            Returns: The y-coordinate of the rectangle's position.
         """
         return self.__y
 
-     @y.setter
-     def y(self, value):
+    @y.setter
+    def y(self, value):
          """
             Setter function for y.
 
@@ -128,75 +130,75 @@ class Rectangle(Base):
             Raises:
                 TypeError: If the value is not an integer.
                 ValueError: If the value is negative.
-            """
-            if type(value) != int:
-                raise TypeError("y must be an integer")
-            if value < 0:
-                raise ValueError("y must be >= 0")
+        """
+        if type(value) != int:
+            raise TypeError("y must be an integer")
+        if value < 0:
+            raise ValueError("y must be >= 0")
 
-            self.__y = value
+        self.__y = value
 
-        def area(self):
-            """
-            Calculates the area of the rectangle.
+    def area(self):
+        """
+        Calculates the area of the rectangle.
 
-            Returns: The area of the rectangle.
-            """
-            return (self.__width * self.__height)
+        Returns: The area of the rectangle.
+        """
+        return (self.__width * self.__height)
 
-        def display(self):
-            """
-            Displays the rectangle as a series of '#' characters.
-            """
-            rectangle = ""
-            print_symbol = "#"
+    def display(self):
+        """
+        Displays the rectangle as a series of '#' characters.
+        """
+        rectangle = ""
+        print_symbol = "#"
+
 #        for i in range(self.__height - 1):
 #            rectangle += print_symbol * self.__width + "\n"
 #        rectangle += print_symbol * self.__width
 
 #        print("{}".format(rectangle))
 
-            print("\n" * self.y, end="")
+        print("\n" * self.y, end="")
 
-            for i in range(self.height):
-                rectangle += (" " * self.x) + (print_symbol*self.width) + "\n"
-            print(rectangle, end="")
+        for i in range(self.height):
+            rectangle += (" " * self.x) + (print_symbol*self.width) + "\n"
+        print(rectangle, end="")
 
-            def __str__(self):
-                """
-                    Returns the string representation of the rectangle.
-                """
-                return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
-                                                        self.__x, self.__y,
-                                                        self.__width, self.__height)
+    def __str__(self):
+        """
+            Returns the string representation of the rectangle.
+        """
+        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
+                                                self.__x, self.__y,
+                                                self.__width, self.__height)
 
-            def update(self, *args, **kwargs):
-                """
-                Updates the attributes of the rectangle.
+    def update(self, *args, **kwargs):
+        """
+        Updates the attributes of the rectangle.
 
-                Args:
-                    *args: Variable number of non-keyword arguments.
-                    **kwargs: Variable number of keyword arguments.
-                """
-                if len(args) == 0:
-                    for key, val in kwargs.items():
-                        self.__setattr__(key, val)
-                    return
+        Args:
+            *args: Variable number of non-keyword arguments.
+            **kwargs: Variable number of keyword arguments.
+        """
+        if len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
+            return
 
-                try:
-                    self.id = args[0]
-                    self.width = args[1]
-                    self.height = args[2]
-                    self.x = args[
-                    self.y = args[4
-                except IndexError:
-                    pass
+        try:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[
+            self.y = args[4
+        except IndexError:
+            pass
 
-        def to_dictionary(self):
+    def to_dictionary(self):
         """
              Returns the dictionary representation of the rectangle.
         """
-         return {'x': getattr(self, "x"), 'y': getattr(self, "y"),
+        return {'x': getattr(self, "x"), 'y': getattr(self, "y"),
                 'id': getattr(self, "id"), 'height': getattr(self, "height"),
                 'width': getattr(self, "width")}
-
